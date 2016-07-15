@@ -86,11 +86,11 @@ class Internetmarke(object):
         r = s.retrievePreviewVoucherPNG(_soapheader = self.soapheader,
                                         productCode = prod_code,
                                         voucherLayout = layout)
-        _logger.info("retrievePreviewPNG result", r)
+        _logger.info("retrievePreviewPNG result: %s", r)
         return r
 
     def add_position(self, position):
-        _logger.info("Adding position to basket:", position)
+        _logger.info("Adding position to basket: %s", position)
         self.positions.append(position)
 
     def compute_total(self):
