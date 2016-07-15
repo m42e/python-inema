@@ -106,6 +106,7 @@ class Internetmarke(object):
     def checkoutPDF(self, page_format):
         s = self.client.service
         # FIXME: convert ShoppingCartPosition to ShoppingCartPDFPosition
+        _logger.info("Submitting basket with %u positions", len(self.positions))
         r = s.checkoutShoppingCartPDF(_soapheader = self.soapheader,
                                   userToken = self.user_token,
                                   pageFormatId = page_format,
@@ -118,6 +119,7 @@ class Internetmarke(object):
 
     def checkoutPNG(self):
         s = self.client.service
+        _logger.info("Submitting basket with %u positions", len(self.positions))
         r = s.checkoutShoppingCartPNG(_soapheader= self.soapheader,
                                   userToken = self.user_token,
                                   positions = self.positions,
