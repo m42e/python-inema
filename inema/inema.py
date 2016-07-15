@@ -8,6 +8,9 @@ from lxml import etree
 from zeep import Client
 from pkg_resources import resource_stream, Requirement
 import requests, zipfile, StringIO
+import logging
+
+_logger = logging.getLogger(__name__)
 
 products_json = resource_stream(Requirement.parse("inema"), "data/products.json")
 marke_products = json.load(products_json)
@@ -64,16 +67,17 @@ class Internetmarke(object):
     def authenticate(self, username, password):
         s = self.client.service
         r = s.authenticateUser(_soapheader= self.soapheader, username=username, password=password)
-        print r
         self.user_token = r.userToken
         self.wallet_balance = r.walletBalance
 
     def retrievePNGs(self, link):
+        _logger.info("Retrieving PNGs from %s", link)
         r = requests.get(link, stream=True)
         z = zipfile.ZipFile(StringIO.StringIO(r.content))
         return map(lambda f: z.read(f.filename), z.infolist())
 
     def retrieve_manifest(self, link):
+        _logger.info("Retrieving Manifest from %s", link)
         r = requests.get(link, stream=True)
         return r.content
 
@@ -82,10 +86,11 @@ class Internetmarke(object):
         r = s.retrievePreviewVoucherPNG(_soapheader = self.soapheader,
                                         productCode = prod_code,
                                         voucherLayout = layout)
-        print r
+        _logger.info("retrievePreviewPNG result", r)
         return r
 
     def add_position(self, position):
+        _logger.info("Adding position to basket:", position)
         self.positions.append(position)
 
     def compute_total(self):
@@ -104,7 +109,7 @@ class Internetmarke(object):
                                   total = self.compute_total(),
                                   createManifest = True,
                                   createShippingList = 2)
-        print r
+        _logger.info("PDF checkout result: %s", r)
         return r
 
     def checkoutPNG(self):
@@ -115,7 +120,7 @@ class Internetmarke(object):
                                   total = self.compute_total(),
                                   createManifest = True,
                                   createShippingList = 2)
-        print r
+        _logger.info("PNG checkout result: %s", r)
         if r.link:
             # retrieve PNG images and store them in result object
             pngs = self.retrievePNGs(r.link)
