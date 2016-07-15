@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-import time
+from datetime import datetime
+from pytz import timezone
 import md5
 import json
 from lxml import etree
@@ -32,7 +33,9 @@ def gen_1c4a_hdr(partner_id, key_phase, key):
         return md5_hex[:8]
 
     def gen_timestamp():
-        return time.strftime("%d%m%Y-%H%M%S")
+        de_zone = timezone("Europe/Berlin")
+        de_time = datetime.now(de_zone)
+        return de_time.strftime("%d%m%Y-%H%M%S")
 
     nsmap={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/',
            'v3':'http://oneclickforpartner.dpag.de'}
