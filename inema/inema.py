@@ -93,6 +93,10 @@ class Internetmarke(object):
         _logger.info("Adding position to basket: %s", position)
         self.positions.append(position)
 
+    def clear_positions(self):
+        _logger.info("Clearing positions from basket")
+        self.positions = []
+
     def compute_total(self):
         total = 0
         for p in self.positions:
