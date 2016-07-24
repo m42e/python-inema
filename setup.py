@@ -12,7 +12,7 @@ setup(
         long_description=open('README.rst').read(),
         author='Harald Welte',
         author_email='hwelte@sysmocom.de',
-        packages=['inema']
+        packages=['inema'],
         install_requires=install_requires,
         package_data={'inema': ['data/products.json']},
         license='AGPLv3',
