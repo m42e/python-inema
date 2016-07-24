@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 install_requires = [
-        'zeep',
+        'zeep >= 0.12.0',
         'lxml',
 ]
 

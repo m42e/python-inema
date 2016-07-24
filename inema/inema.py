@@ -66,7 +66,7 @@ class Internetmarke(object):
 
     def authenticate(self, username, password):
         s = self.client.service
-        r = s.authenticateUser(_soapheader= self.soapheader, username=username, password=password)
+        r = s.authenticateUser(_soapheaders= self.soapheader, username=username, password=password)
         self.user_token = r.userToken
         self.wallet_balance = r.walletBalance
 
@@ -83,7 +83,7 @@ class Internetmarke(object):
 
     def retrievePreviewPNG(self, prod_code, layout = "AddressZone"):
         s = self.client.service
-        r = s.retrievePreviewVoucherPNG(_soapheader = self.soapheader,
+        r = s.retrievePreviewVoucherPNG(_soapheaders = self.soapheader,
                                         productCode = prod_code,
                                         voucherLayout = layout)
         _logger.info("retrievePreviewPNG result: %s", r)
@@ -107,7 +107,7 @@ class Internetmarke(object):
         s = self.client.service
         # FIXME: convert ShoppingCartPosition to ShoppingCartPDFPosition
         _logger.info("Submitting basket with %u positions", len(self.positions))
-        r = s.checkoutShoppingCartPDF(_soapheader = self.soapheader,
+        r = s.checkoutShoppingCartPDF(_soapheaders = self.soapheader,
                                   userToken = self.user_token,
                                   pageFormatId = page_format,
                                   positions = self.positions,
@@ -120,7 +120,7 @@ class Internetmarke(object):
     def checkoutPNG(self):
         s = self.client.service
         _logger.info("Submitting basket with %u positions", len(self.positions))
-        r = s.checkoutShoppingCartPNG(_soapheader= self.soapheader,
+        r = s.checkoutShoppingCartPNG(_soapheaders = self.soapheader,
                                   userToken = self.user_token,
                                   positions = self.positions,
                                   total = self.compute_total(),
