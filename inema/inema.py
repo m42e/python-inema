@@ -12,7 +12,7 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-products_json = resource_stream(Requirement.parse("inema"), "data/products.json")
+products_json = resource_stream(Requirement.parse("inema"), "inema/data/products.json")
 marke_products = json.load(products_json)
 
 def get_product_price_by_id(ext_prod_id):
