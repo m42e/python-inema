@@ -126,6 +126,9 @@ class Internetmarke(object):
                                   createManifest = True,
                                   createShippingList = 2)
         _logger.info("PDF checkout result: %s", r)
+        if r.link:
+            pdf = requests.get(r.link, stream=True)
+            r.shoppingCart.voucherList.voucher[0].pdf_bin = pdf.content
         return r
 
     def checkoutPNG(self):
@@ -175,9 +178,17 @@ class Internetmarke(object):
         atype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}NamedAddress')
         return atype(name = name, address = address)
 
-    def build_position(self, product, sender, receiver, layout = "AddressZone"):
+    def build_position(self, product, sender, receiver, layout = "AddressZone", pdf = False, x=1, y=1, page=1):
         zclient = self.client
         abtype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}AddressBinding')
-        ptype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}ShoppingCartPosition')
+        postype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}VoucherPosition')
+        if pdf:
+            pos = 'ShoppingCartPDFPosition'
+            args = { 'position': postype(labelX=x, labelY=y, page=page) }
+        else:
+            pos = 'ShoppingCartPosition'
+            args = {}
+        ptype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}' + pos)
         ab = abtype(sender = sender, receiver = receiver)
-        return ptype(productCode = product, address = ab, voucherLayout = layout)
+        return ptype(productCode = product, address = ab,
+                voucherLayout = layout, **args)
