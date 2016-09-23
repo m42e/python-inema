@@ -2,18 +2,19 @@
 
 from datetime import datetime
 from pytz import timezone
-import md5
+import hashlib
 import json
 from lxml import etree
 from zeep import Client
 from pkg_resources import resource_stream, Requirement
-import requests, zipfile, StringIO
+import requests, zipfile
+import io
 import logging
 
 _logger = logging.getLogger(__name__)
 
-products_json = resource_stream(Requirement.parse("inema"), "inema/data/products.json")
-marke_products = json.load(products_json)
+products_json = resource_stream(__name__, "data/products.json").read().decode()
+marke_products = json.loads(products_json)
 
 def get_product_price_by_id(ext_prod_id):
     price_float_str = marke_products[str(ext_prod_id)]['cost_price']
@@ -31,7 +32,7 @@ def gen_1c4a_hdr(partner_id, key_phase, key):
         # concatenate with "::" separator
         inp = "%s::%s::%s::%s" % (partner_id, req_ts, key_phase, key)
         # compute MD5 hash as 32 hex nibbles
-        md5_hex = md5.new(inp).hexdigest()
+        md5_hex = hashlib.md5(inp.encode('utf8')).hexdigest()
         # return the first 8 characters
         return md5_hex[:8]
 
@@ -73,8 +74,8 @@ class Internetmarke(object):
     def retrievePNGs(self, link):
         _logger.info("Retrieving PNGs from %s", link)
         r = requests.get(link, stream=True)
-        z = zipfile.ZipFile(StringIO.StringIO(r.content))
-        return map(lambda f: z.read(f.filename), z.infolist())
+        z = zipfile.ZipFile(io.BytesIO(r.content))
+        return [ z.read(f.filename) for f in z.infolist() ]
 
     def retrieve_manifest(self, link):
         _logger.info("Retrieving Manifest from %s", link)

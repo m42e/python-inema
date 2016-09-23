@@ -1,1 +1,1 @@
-from inema import Internetmarke
+from .inema import Internetmarke
