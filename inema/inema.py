@@ -56,7 +56,6 @@ def gen_1c4a_hdr(partner_id, key_phase, key):
 
 class Internetmarke(object):
     wsdl_url = 'https://internetmarke.deutschepost.de/OneClickForAppV3/OneClickForAppServiceV3?wsdl'
-    positions = []
 
     def __init__(self, partner_id, key, key_phase="1"):
         self.client = Client(self.wsdl_url)
@@ -64,6 +63,7 @@ class Internetmarke(object):
         self.key_phase = key_phase
         self.key = key
         self.soapheader = gen_1c4a_hdr(self.partner_id, self.key_phase, self.key)
+        self.positions = []
 
     def authenticate(self, username, password):
         s = self.client.service
