@@ -16,6 +16,9 @@ _logger = logging.getLogger(__name__)
 products_json = resource_stream(__name__, "data/products.json").read().decode()
 marke_products = json.loads(products_json)
 
+formats_json = resource_stream(__name__, "data/formats.json").read().decode()
+formats = json.loads(formats_json)
+
 def get_product_price_by_id(ext_prod_id):
     price_float_str = marke_products[str(ext_prod_id)]['cost_price']
     return int(float(price_float_str) * 100)
@@ -89,6 +92,13 @@ class Internetmarke(object):
                                         voucherLayout = layout)
         _logger.info("retrievePreviewPNG result: %s", r)
         return r
+
+    def retrievePageFormats(self):
+        s = self.client.service
+        r = s.retrievePageFormats(_soapheaders = self.soapheader)
+        _logger.info("retrievePageFormats result: %s", r)
+        return r
+
 
     def add_position(self, position):
         _logger.info("Adding position to basket: %s", position)
