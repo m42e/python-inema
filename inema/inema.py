@@ -93,6 +93,16 @@ class Internetmarke(object):
         _logger.info("retrievePreviewPNG result: %s", r)
         return r
 
+    def retrievePreviewPDF(self, prod_code, page_format,
+        layout = "AddressZone"):
+        s = self.client.service
+        r = s.retrievePreviewVoucherPDF(_soapheaders = self.soapheader,
+                                        productCode = prod_code,
+                                        pageFormatId = page_format,
+                                        voucherLayout = layout)
+        _logger.info("retrievePreviewPPDF result: %s", r)
+        return r
+
     def retrievePageFormats(self):
         s = self.client.service
         r = s.retrievePageFormats(_soapheaders = self.soapheader)
