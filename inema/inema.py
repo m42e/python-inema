@@ -128,7 +128,9 @@ class Internetmarke(object):
         _logger.info("PDF checkout result: %s", r)
         if r.link:
             pdf = requests.get(r.link, stream=True)
-            r.shoppingCart.voucherList.voucher[0].pdf_bin = pdf.content
+            r.pdf_bin = pdf.content
+        if r.manifestLink:
+            r.manifest_pdf_bin = self.retrieve_manifest(r.manifestLink)
         return r
 
     def checkoutPNG(self):
