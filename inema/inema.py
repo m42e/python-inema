@@ -21,7 +21,7 @@ formats = json.loads(formats_json)
 
 def get_product_price_by_id(ext_prod_id):
     price_float_str = marke_products[str(ext_prod_id)]['cost_price']
-    return int(float(price_float_str) * 100)
+    return int(round(float(price_float_str) * 100))
 
 # generate a 1C4A SOAP header
 def gen_1c4a_hdr(partner_id, key_phase, key):
@@ -127,7 +127,7 @@ class Internetmarke(object):
     def checkoutPDF(self, page_format):
         s = self.client.service
         # FIXME: convert ShoppingCartPosition to ShoppingCartPDFPosition
-        _logger.info("Submitting basket with %u positions", len(self.positions))
+        _logger.info("Submitting basket with %u positions, total=%f", len(self.positions), self.compute_total())
         r = s.checkoutShoppingCartPDF(_soapheaders = self.soapheader,
                                   userToken = self.user_token,
                                   pageFormatId = page_format,
@@ -145,7 +145,7 @@ class Internetmarke(object):
 
     def checkoutPNG(self):
         s = self.client.service
-        _logger.info("Submitting basket with %u positions", len(self.positions))
+        _logger.info("Submitting basket with %u positions, total=%f", len(self.positions), self.compute_total())
         r = s.checkoutShoppingCartPNG(_soapheaders = self.soapheader,
                                   userToken = self.user_token,
                                   positions = self.positions,
