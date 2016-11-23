@@ -15,7 +15,7 @@ setup(
         url='http://git.sysmocom.de/python-inema/',
         packages=['inema'],
         install_requires=install_requires,
-        package_data={'inema': ['data/products.json']},
+        package_data={'inema': ['data/products.json', 'data/formats.json']},
         license='AGPLv3',
         classifiers=[
             'Development Status :: 4 - Beta',
