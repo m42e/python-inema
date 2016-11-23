@@ -190,7 +190,7 @@ class Internetmarke(object):
         atype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}NamedAddress')
         return atype(name = name, address = address)
 
-    def build_position(self, product, sender, receiver, layout = "AddressZone", pdf = False, x=1, y=1, page=1):
+    def build_position(self, product, sender=None, receiver=None, layout="AddressZone", pdf=False, x=1, y=1, page=1):
         zclient = self.client
         abtype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}AddressBinding')
         postype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}VoucherPosition')
@@ -201,6 +201,6 @@ class Internetmarke(object):
             pos = 'ShoppingCartPosition'
             args = {}
         ptype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}' + pos)
-        ab = abtype(sender = sender, receiver = receiver)
+        ab = abtype(sender = sender, receiver = receiver) if sender and receiver else None
         return ptype(productCode = product, address = ab,
                 voucherLayout = layout, **args)
