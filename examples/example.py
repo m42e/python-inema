@@ -18,8 +18,9 @@ logging.basicConfig(level=logging.INFO)
 im = Internetmarke(PARTNER_ID, KEY, KEY_PHASE)
 im.authenticate(USER, PASS)
 
+pn = im.build_pers_name(first='Harald', last='Welte')
 sysmo_addr = im.build_addr('Alt-Moabit','93','10559','Berlin','DEU')
-sysmo_naddr = im.build_comp_addr('sysmocom - s.f.m.c. GmbH', sysmo_addr)
+sysmo_naddr = im.build_comp_addr('sysmocom - s.f.m.c. GmbH', sysmo_addr, person=pn)
 
 dest_addr = im.build_addr('Glanzstrasse','11','12437','Berlin','DEU')
 dest_naddr = im.build_pers_addr('Harald', 'Welte', dest_addr)

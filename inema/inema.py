@@ -171,6 +171,13 @@ class Internetmarke(object):
                      houseNo = house, zip = zipcode, city = city,
                      country= country)
 
+    def build_pers_name(self, first, last, salutation=None, title=None):
+        zclient = self.client
+        pntype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}PersonName')
+        pn = pntype(firstname = first, lastname = last,
+                    salutation = salutation, title = title)
+        return pn
+
     def build_comp_addr(self, company, address, person = None):
         zclient = self.client
         cntype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}CompanyName')
@@ -182,9 +189,7 @@ class Internetmarke(object):
 
     def build_pers_addr(self, first, last, address, salutation = None, title = None):
         zclient = self.client
-        pntype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}PersonName')
-        pn = pntype(firstname = first, lastname = last,
-                    salutation = salutation, title = title)
+        pn = self.build_pers_name(first, last, salutation, title)
         ntype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}Name')
         name = ntype(personName = pn)
         atype = zclient.get_type('{http://oneclickforapp.dpag.de/V3}NamedAddress')
