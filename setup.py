@@ -7,7 +7,7 @@ install_requires = [
 
 setup(
         name='inema',
-        version='0.2',
+        version='0.3',
         description='A Python interface to the Deutsche Post Internetmarke Online Franking',
         long_description=open('README.rst').read(),
         author='Harald Welte',
@@ -24,4 +24,7 @@ setup(
             'Programming Language :: Python :: 3',
             'Topic :: Office/Business',
         ],
+        entry_points={
+            'console_scripts': [ 'frank = inema.frank:main' ]
+        },
 )
