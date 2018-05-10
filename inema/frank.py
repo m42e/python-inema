@@ -11,6 +11,7 @@ import logging
 import os
 import re
 import requests
+import subprocess
 import sys
 import zeep
 
@@ -148,6 +149,8 @@ Frank and buy 2 stamps (creates 2 page document postage_YYYY-MM-DD.pdf):
    $ frank ---format 26  --product 79 'Joe User;Street 1;12345 City' \\
        'Jane User;Fakestreet 2;67890 Fakestadt'
 
+It's also fine to delimit the recipient lines with newline characters.
+
 2016, Georg Sauthoff <mail@georg.so>, GPLv3+
 
 '''
@@ -184,6 +187,8 @@ Frank and buy 2 stamps (creates 2 page document postage_YYYY-MM-DD.pdf):
       metavar='FILENAME', help='machine specific config file')
   p.add_argument('--update', action='store_true',
       help='update internal format list via webservice')
+  p.add_argument('--print', action='store_true', default=False,
+      help='Print the retrieved PDF with the lpr command')
   return p
 
 def parse_args(*xs):
@@ -361,6 +366,9 @@ def store_files(res, args):
     log.info('Writing: {}'.format(filename))
     with open(filename, 'wb') as f:
       f.write(pdf_bin)
+    if args.print:
+      log.info('Printing: {}'.format(filename))
+      subprocess.check_call(['lpr', filename])
 
 def get_format(ident):
   for f in inema.formats:
@@ -453,7 +461,7 @@ def main():
   setup_logging()
   args = parse_args()
   log.debug('Starting frank.py')
-  imain(args)
+  return imain(args)
 
 if __name__ == '__main__':
   sys.exit(main())
