@@ -43,13 +43,13 @@
     }, 
     "82": {
         "international": false, 
-        "cost_price": "1.9", 
+        "cost_price": "2.2", 
         "name": "Warensendung Gro\u00df", 
         "max_weight": "500"
     }, 
     "81": {
         "international": false, 
-        "cost_price": "0.9", 
+        "cost_price": "1.3", 
         "name": "Warensendung Kompakt", 
         "max_weight": "50"
     }, 
@@ -205,13 +205,13 @@
     }, 
     "79": {
         "international": false, 
-        "cost_price": "1.65", 
+        "cost_price": "1.70", 
         "name": "B\u00fcchersendung Maxi", 
         "max_weight": "1000"
     }, 
     "78": {
         "international": false, 
-        "cost_price": "1", 
+        "cost_price": "1.20", 
         "name": "B\u00fcchersendung Gro\u00df", 
         "max_weight": "500"
     }, 
