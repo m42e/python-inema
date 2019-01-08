@@ -411,7 +411,7 @@
         "international": true, 
         "cost_price": "19.25",
         "mame": "Warenpost Int. L Tracked", 
-        "max_weight": "1000"
+        "max_weight": "2000"
     }, 
 
     "10254": {
@@ -436,7 +436,7 @@
         "international": true, 
         "cost_price": "17.00",
         "mame": "Warenpost International L EU USt.", 
-        "max_weight": "1000"
+        "max_weight": "2000"
     }, 
 
     "10258": {
@@ -461,7 +461,7 @@
         "international": true, 
         "cost_price": "22.91",
         "mame": "Warenpost Int. L EU USt. Tracked", 
-        "max_weight": "1000"
+        "max_weight": "2000"
     }, 
 
     "10280": {
@@ -486,7 +486,7 @@
         "international": true, 
         "cost_price": "19.50",
         "mame": "Warenpost International L Unterschrift", 
-        "max_weight": "1000"
+        "max_weight": "2000"
     },
 
     "10284": {
@@ -511,7 +511,7 @@
         "international": true, 
         "cost_price": "23.21",
         "mame": "Warenpost International L EU USt. Unterschrift", 
-        "max_weight": "1000"
+        "max_weight": "2000"
     }
 
 
