@@ -1,4 +1,5 @@
 from setuptools import find_packages, setup
+from inema import __version__
 
 install_requires = [
         'zeep >= 0.12.0',
@@ -7,7 +8,7 @@ install_requires = [
 
 setup(
         name='inema',
-        version='0.4',
+        version=__version__,
         description='A Python interface to the Deutsche Post Internetmarke Online Franking',
         long_description=open('README.rst').read(),
         author='Harald Welte',

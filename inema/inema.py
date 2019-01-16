@@ -11,6 +11,8 @@ import requests, zipfile
 import io
 import logging
 
+__version__ = "0.5"
+
 _logger = logging.getLogger(__name__)
 
 products_json = resource_stream(__name__, "data/products.json").read().decode()
