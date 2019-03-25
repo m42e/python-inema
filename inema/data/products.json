@@ -512,7 +512,32 @@
         "cost_price": "23.21",
         "name": "Warenpost International L EU USt. Unterschrift", 
         "max_weight": "2000"
-    }
+    },
+
+    "10270": {
+        "international": true,
+        "cost_price": "1.00",
+        "name": "Warenpost Int. KT EU USt. für Internetmarke",
+        "max_weight": "2000"
+    },
+    "10292": {
+        "international": true,
+        "cost_price": "3.50",
+        "name": "Warenpost Int. KT Unterschrift EU USt. für Internetmarke",
+        "max_weight": "2000"
+    },
+    "10264": {
+        "international": true,
+        "cost_price": "1.00",
+        "name": "Warenpost Int. KT (NON EU)",
+        "max_weight": "2000"
+    },
+    "10289": {
+        "international": true,
+        "cost_price": "3.50",
+        "name": "Warenpost Int. KT Unterschrift",
+        "max_weight": "2000"
+     }
 
 
 }
