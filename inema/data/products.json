@@ -367,150 +367,150 @@
     "10246": {
         "international": true, 
         "cost_price": "3.20",
-        "mame": "Warenpost International XS", 
+        "name": "Warenpost International XS", 
         "max_weight": "500"
     }, 
     "10247": {
         "international": true, 
         "cost_price": "3.70",
-        "mame": "Warenpost International S", 
+        "name": "Warenpost International S", 
         "max_weight": "500"
     }, 
     "10248": {
         "international": true, 
         "cost_price": "7.00",
-        "mame": "Warenpost International M", 
+        "name": "Warenpost International M", 
         "max_weight": "1000"
     }, 
     "10249": {
         "international": true, 
         "cost_price": "17.00",
-        "mame": "Warenpost International L", 
+        "name": "Warenpost International L", 
         "max_weight": "1000"
     }, 
 
     "10250": {
         "international": true, 
         "cost_price": "5.45",
-        "mame": "Warenpost Int. XS Tracked", 
+        "name": "Warenpost Int. XS Tracked", 
         "max_weight": "500"
     }, 
     "10251": {
         "international": true, 
         "cost_price": "5.95",
-        "mame": "Warenpost Int. S Tracked", 
+        "name": "Warenpost Int. S Tracked", 
         "max_weight": "500"
     }, 
     "10252": {
         "international": true, 
         "cost_price": "9.25",
-        "mame": "Warenpost Int. M Tracked", 
+        "name": "Warenpost Int. M Tracked", 
         "max_weight": "1000"
     }, 
     "10253": {
         "international": true, 
         "cost_price": "19.25",
-        "mame": "Warenpost Int. L Tracked", 
+        "name": "Warenpost Int. L Tracked", 
         "max_weight": "2000"
     }, 
 
     "10254": {
         "international": true, 
         "cost_price": "3.81",
-        "mame": "Warenpost International XS EU USt.", 
+        "name": "Warenpost International XS EU USt.", 
         "max_weight": "500"
     }, 
     "10255": {
         "international": true, 
         "cost_price": "4.40",
-        "mame": "Warenpost International S EU USt.", 
+        "name": "Warenpost International S EU USt.", 
         "max_weight": "500"
     }, 
     "10256": {
         "international": true, 
         "cost_price": "8.33",
-        "mame": "Warenpost International M EU USt.", 
+        "name": "Warenpost International M EU USt.", 
         "max_weight": "1000"
     }, 
     "10257": {
         "international": true, 
         "cost_price": "17.00",
-        "mame": "Warenpost International L EU USt.", 
+        "name": "Warenpost International L EU USt.", 
         "max_weight": "2000"
     }, 
 
     "10258": {
         "international": true, 
         "cost_price": "6.49",
-        "mame": "Warenpost Int. XS EU USt. Tracked", 
+        "name": "Warenpost Int. XS EU USt. Tracked", 
         "max_weight": "500"
     }, 
     "10259": {
         "international": true, 
         "cost_price": "7.08",
-        "mame": "Warenpost Int. S EU USt. Tracked", 
+        "name": "Warenpost Int. S EU USt. Tracked", 
         "max_weight": "500"
     }, 
     "10260": {
         "international": true, 
         "cost_price": "11.01",
-        "mame": "Warenpost Int. M EU USt. Tracked", 
+        "name": "Warenpost Int. M EU USt. Tracked", 
         "max_weight": "1000"
     }, 
     "10261": {
         "international": true, 
         "cost_price": "22.91",
-        "mame": "Warenpost Int. L EU USt. Tracked", 
+        "name": "Warenpost Int. L EU USt. Tracked", 
         "max_weight": "2000"
     }, 
 
     "10280": {
         "international": true, 
         "cost_price": "5.70",
-        "mame": "Warenpost International XS Unterschrift", 
+        "name": "Warenpost International XS Unterschrift", 
         "max_weight": "500"
     }, 
     "10281": {
         "international": true, 
         "cost_price": "6.20",
-        "mame": "Warenpost International S Unterschrift", 
+        "name": "Warenpost International S Unterschrift", 
         "max_weight": "500"
     }, 
     "10282": {
         "international": true, 
         "cost_price": "9.50",
-        "mame": "Warenpost International M Unterschrift", 
+        "name": "Warenpost International M Unterschrift", 
         "max_weight": "1000"
     }, 
     "10283": {
         "international": true, 
         "cost_price": "19.50",
-        "mame": "Warenpost International L Unterschrift", 
+        "name": "Warenpost International L Unterschrift", 
         "max_weight": "2000"
     },
 
     "10284": {
         "international": true, 
         "cost_price": "6.78",
-        "mame": "Warenpost International XS EU USt. Unterschrift", 
+        "name": "Warenpost International XS EU USt. Unterschrift", 
         "max_weight": "500"
     }, 
     "10285": {
         "international": true, 
         "cost_price": "7.38",
-        "mame": "Warenpost International S EU USt. Unterschrift", 
+        "name": "Warenpost International S EU USt. Unterschrift", 
         "max_weight": "500"
     }, 
     "10286": {
         "international": true, 
         "cost_price": "11.31",
-        "mame": "Warenpost International M EU USt. Unterschrift", 
+        "name": "Warenpost International M EU USt. Unterschrift", 
         "max_weight": "1000"
     }, 
     "10287": {
         "international": true, 
         "cost_price": "23.21",
-        "mame": "Warenpost International L EU USt. Unterschrift", 
+        "name": "Warenpost International L EU USt. Unterschrift", 
         "max_weight": "2000"
     }
 
