@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from datetime import datetime
 from pytz import timezone
@@ -11,7 +11,7 @@ import requests, zipfile
 import io
 import logging
 
-__version__ = "0.6"
+__version__ = "0.61"
 
 _logger = logging.getLogger(__name__)
 
@@ -46,18 +46,23 @@ def gen_1c4a_hdr(partner_id, key_phase, key):
         de_time = datetime.now(de_zone)
         return de_time.strftime("%d%m%Y-%H%M%S")
 
+
     nsmap={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/',
            'v3':'http://oneclickforpartner.dpag.de'}
     r = etree.Element("{http://schemas.xmlsoap.org/soap/envelope/}Header", nsmap = nsmap)
-    p = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_ID")
-    p.text = partner_id
-    t = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}REQUEST_TIMESTAMP")
-    t.text = gen_timestamp()
-    k = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}KEY_PHASE")
-    k.text = key_phase
-    s = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_SIGNATURE")
-    s.text = compute_1c4a_hash(partner_id, t.text, key_phase, key)
-    return [p, t, k, s]
+    headers = []
+
+    def add_header(name, text):
+        elem = etree.SubElement(r, "{{{}}}{}".format(nsmap['v3'],name))
+        elem.text = text
+        headers.append(elem)
+
+    timestamp = gen_timestamp()
+    add_header('PARTNER_ID', partner_id)
+    add_header('REQUEST_TIMESTAMP', timestamp)
+    add_header('KEY_PHASE', key_phase)
+    add_header('PARTNER_SIGNATURE', compute_1c4a_hash(partner_id, timestamp, key_phase, key))
+    return headers
 
 class Internetmarke(object):
     wsdl_url = 'https://internetmarke.deutschepost.de/OneClickForAppV3/OneClickForAppServiceV3?wsdl'
