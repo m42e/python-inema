@@ -8,7 +8,7 @@ install_requires = [
 
 setup(
         name='inema',
-        version='0.61',
+        version='0.62',
         description='A Python interface to the Deutsche Post Internetmarke Online Franking',
         long_description=open('README.rst').read(),
         author='Harald Welte',

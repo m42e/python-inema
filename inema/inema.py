@@ -11,7 +11,7 @@ import requests, zipfile
 import io
 import logging
 
-__version__ = "0.61"
+__version__ = "0.62"
 
 _logger = logging.getLogger(__name__)
 
@@ -72,8 +72,11 @@ class Internetmarke(object):
         self.partner_id = partner_id
         self.key_phase = key_phase
         self.key = key
-        self.soapheader = gen_1c4a_hdr(self.partner_id, self.key_phase, self.key)
         self.positions = []
+
+    @property
+    def soapheader(self):
+        return gen_1c4a_hdr(self.partner_id, self.key_phase, self.key)
 
     def authenticate(self, username, password):
         s = self.client.service
