@@ -517,13 +517,13 @@
     "10270": {
         "international": true,
         "cost_price": "1.00",
-        "name": "Warenpost Int. KT EU USt. für Internetmarke",
+        "name": "Warenpost Int. KT EU USt. fuer Internetmarke",
         "max_weight": "2000"
     },
     "10292": {
         "international": true,
         "cost_price": "3.50",
-        "name": "Warenpost Int. KT Unterschrift EU USt. für Internetmarke",
+        "name": "Warenpost Int. KT Unterschrift EU USt. fuer Internetmarke",
         "max_weight": "2000"
     },
     "10264": {
