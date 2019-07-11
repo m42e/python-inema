@@ -16,10 +16,10 @@ __version__ = "0.7"
 
 _logger = logging.getLogger(__name__)
 
-products_json = resource_stream(__name__, "data/products.json").read().decode()
+products_json = resource_stream(__name__, "data/products.json").read().decode("utf-8")
 marke_products = json.loads(products_json)
 
-formats_json = resource_stream(__name__, "data/formats.json").read().decode()
+formats_json = resource_stream(__name__, "data/formats.json").read().decode("utf-8")
 formats = json.loads(formats_json)
 
 def get_product_price_by_id(ext_prod_id):
