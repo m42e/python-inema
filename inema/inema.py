@@ -7,7 +7,8 @@ import hashlib
 import json
 from lxml import etree
 from zeep import Client
-from pkg_resources import resource_stream, Requirement
+from zeep.wsse.username import UsernameToken
+from pkg_resources import resource_stream
 import requests, zipfile
 import io
 import logging
@@ -21,6 +22,23 @@ marke_products = json.loads(products_json)
 
 formats_json = resource_stream(__name__, "data/formats.json").read().decode("utf-8")
 formats = json.loads(formats_json)
+
+class ProductInformation(object):
+    wsdl_url = 'https://prodws.deutschepost.de:8443/ProdWSProvider_1_1/prodws?wsdl'
+
+    def __init__(self, username, password, mandantid):
+        self.client = Client(self.wsdl_url, wsse=UsernameToken(username, password))
+        self.username = username
+        self.password = password
+        self.mandantid = mandantid
+
+    def getProductList(self):
+        s = self.client.service
+        r = s.getProductList(mandantID=self.mandantid, dedicatedProducts=True, responseMode=0)
+        _logger.info("getProductList result: %s", r)
+
+        return r
+
 
 class Internetmarke(object):
     wsdl_url = 'https://internetmarke.deutschepost.de/OneClickForAppV3/OneClickForAppServiceV3?wsdl'
