@@ -22,53 +22,53 @@ marke_products = json.loads(products_json)
 formats_json = resource_stream(__name__, "data/formats.json").read().decode("utf-8")
 formats = json.loads(formats_json)
 
-def get_product_price_by_id(ext_prod_id):
-    price_float_str = marke_products[str(ext_prod_id)]['cost_price']
-    return int(round(float(price_float_str) * 100))
-
-# generate a 1C4A SOAP header
-def gen_1c4a_hdr(partner_id, key_phase, key):
-    # Compute 1C4A request hash accordig to Section 4 of service description
-    def compute_1c4a_hash(partner_id, req_ts, key_phase, key):
-        # trim leading and trailing spaces of each argument
-        partner_id = partner_id.strip()
-        req_ts = req_ts.strip()
-        key_phase = key_phase.strip()
-        key = key.strip()
-        # concatenate with "::" separator
-        inp = "%s::%s::%s::%s" % (partner_id, req_ts, key_phase, key)
-        # compute MD5 hash as 32 hex nibbles
-        md5_hex = hashlib.md5(inp.encode('utf8')).hexdigest()
-        # return the first 8 characters
-        return md5_hex[:8]
-
-    def gen_timestamp():
-        de_zone = timezone("Europe/Berlin")
-        de_time = datetime.now(de_zone)
-        return de_time.strftime("%d%m%Y-%H%M%S")
-
-    nsmap={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/',
-           'v3':'http://oneclickforpartner.dpag.de'}
-    r = etree.Element("{http://schemas.xmlsoap.org/soap/envelope/}Header", nsmap = nsmap)
-    p = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_ID")
-    p.text = partner_id
-    t = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}REQUEST_TIMESTAMP")
-    t.text = gen_timestamp()
-    k = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}KEY_PHASE")
-    k.text = key_phase
-    s = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_SIGNATURE")
-    s.text = compute_1c4a_hash(partner_id, t.text, key_phase, key)
-    return [p, t, k, s]
-
 class Internetmarke(object):
     wsdl_url = 'https://internetmarke.deutschepost.de/OneClickForAppV3/OneClickForAppServiceV3?wsdl'
+
+    # generate a 1C4A SOAP header
+    def gen_1c4a_hdr(self, partner_id, key_phase, key):
+        # Compute 1C4A request hash accordig to Section 4 of service description
+        def compute_1c4a_hash(partner_id, req_ts, key_phase, key):
+            # trim leading and trailing spaces of each argument
+            partner_id = partner_id.strip()
+            req_ts = req_ts.strip()
+            key_phase = key_phase.strip()
+            key = key.strip()
+            # concatenate with "::" separator
+            inp = "%s::%s::%s::%s" % (partner_id, req_ts, key_phase, key)
+            # compute MD5 hash as 32 hex nibbles
+            md5_hex = hashlib.md5(inp.encode('utf8')).hexdigest()
+            # return the first 8 characters
+            return md5_hex[:8]
+
+        def gen_timestamp():
+            de_zone = timezone("Europe/Berlin")
+            de_time = datetime.now(de_zone)
+            return de_time.strftime("%d%m%Y-%H%M%S")
+
+        nsmap={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/',
+               'v3':'http://oneclickforpartner.dpag.de'}
+        r = etree.Element("{http://schemas.xmlsoap.org/soap/envelope/}Header", nsmap = nsmap)
+        p = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_ID")
+        p.text = partner_id
+        t = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}REQUEST_TIMESTAMP")
+        t.text = gen_timestamp()
+        k = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}KEY_PHASE")
+        k.text = key_phase
+        s = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_SIGNATURE")
+        s.text = compute_1c4a_hash(partner_id, t.text, key_phase, key)
+        return [p, t, k, s]
+
+    def get_product_price_by_id(self, ext_prod_id):
+        price_float_str = marke_products[str(ext_prod_id)]['cost_price']
+        return int(round(float(price_float_str) * 100))
 
     def __init__(self, partner_id, key, key_phase="1"):
         self.client = Client(self.wsdl_url)
         self.partner_id = partner_id
         self.key_phase = key_phase
         self.key = key
-        self.soapheader = gen_1c4a_hdr(self.partner_id, self.key_phase, self.key)
+        self.soapheader = self.gen_1c4a_hdr(self.partner_id, self.key_phase, self.key)
         self.positions = []
 
     def authenticate(self, username, password):
@@ -124,7 +124,7 @@ class Internetmarke(object):
     def compute_total(self):
         total = 0
         for p in self.positions:
-            total += get_product_price_by_id(p.productCode)
+            total += self.get_product_price_by_id(p.productCode)
         return total
 
     def checkoutPDF(self, page_format):
