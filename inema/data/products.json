@@ -7,25 +7,25 @@
     }, 
     "11": {
         "international": false, 
-        "cost_price": "0.85", 
+        "cost_price": "0.95", 
         "name": "Kompaktbrief", 
         "max_weight": "50"
     }, 
     "21": {
         "international": false, 
-        "cost_price": "1.45", 
+        "cost_price": "1.55", 
         "name": "Gro\u00dfbrief", 
         "max_weight": "500"
     }, 
     "31": {
         "international": false, 
-        "cost_price": "2.6", 
+        "cost_price": "2.7", 
         "name": "Maxibrief", 
         "max_weight": "1000"
     }, 
     "41": {
         "international": false, 
-        "cost_price": "4.8", 
+        "cost_price": "4.9", 
         "name": "Maxibrief bis 2000 g + Zusatzentgelt MBf", 
         "max_weight": "2000"
     }, 
@@ -151,7 +151,7 @@
     }, 
     "1017": {
         "international": false, 
-        "cost_price": "3.35", 
+        "cost_price": "3.45", 
         "name": "Kompaktbrief Integral + EINSCHREIBEN", 
         "max_weight": "50"
     }, 
@@ -163,13 +163,13 @@
     }, 
     "1022": {
         "international": false, 
-        "cost_price": "3.6", 
+        "cost_price": "3.75", 
         "name": "Gro\u00dfbrief Integral + EINSCHREIBEN EINWURF", 
         "max_weight": "500"
     }, 
     "1027": {
         "international": false, 
-        "cost_price": "3.95", 
+        "cost_price": "4.05", 
         "name": "Gro\u00dfbrief Integral + EINSCHREIBEN", 
         "max_weight": "500"
     }, 
@@ -181,13 +181,13 @@
     }, 
     "1032": {
         "international": false, 
-        "cost_price": "4.75", 
+        "cost_price": "4.90", 
         "name": "Maxibrief Integral + EINSCHREIBEN EINWURF", 
         "max_weight": "1000"
     }, 
     "1037": {
         "international": false, 
-        "cost_price": "5.1", 
+        "cost_price": "5.2", 
         "name": "Maxibrief Integral + EINSCHREIBEN", 
         "max_weight": "1000"
     }, 
@@ -199,7 +199,7 @@
     }, 
     "1042": {
         "international": false, 
-        "cost_price": "6.95", 
+        "cost_price": "7.10", 
         "name": "Maxibrief Integral + EINSCHREIBEN EINWURF + Zusatzentgelt MBf", 
         "max_weight": "2000"
     }, 
@@ -241,7 +241,7 @@
     }, 
     "10011": {
         "international": true, 
-        "cost_price": "1.5", 
+        "cost_price": "1.7", 
         "name": "Kompaktbrief Intern. GK", 
         "max_weight": "50"
     }, 
@@ -271,19 +271,19 @@
     }, 
     "11006": {
         "international": true, 
-        "cost_price": "3.4", 
+        "cost_price": "4.6", 
         "name": "Standardbrief Intern. GK Integral + EINSCHREIBEN", 
         "max_weight": "20"
     }, 
     "11016": {
         "international": true, 
-        "cost_price": "4", 
+        "cost_price": "5.2", 
         "name": "Kompaktbrief Intern. GK Integral + EINSCHREIBEN", 
         "max_weight": "50"
     }, 
     "11056": {
         "international": true, 
-        "cost_price": "6.2", 
+        "cost_price": "7.2", 
         "name": "Gro\u00dfbrief Intern. GK Integral + EINSCHREIBEN", 
         "max_weight": "500"
     }, 
