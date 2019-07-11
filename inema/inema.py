@@ -13,7 +13,7 @@ import requests, zipfile
 import io
 import logging
 
-__version__ = "0.7"
+__version__ = "0.8"
 
 _logger = logging.getLogger(__name__)
 
