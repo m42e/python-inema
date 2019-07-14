@@ -3,7 +3,6 @@ from inema import __version__
 
 install_requires = [
         'zeep >= 0.12.0',
-        'lxml',
         'pytz'
 ]
 
