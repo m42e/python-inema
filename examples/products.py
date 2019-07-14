@@ -1,9 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import logging
 from inema import ProductInformation
 import json
+
+import sys
+
+if sys.version_info.major >= 3:
+    unicode = str
 
 # you have to fill the below with your login details for the ProdWS Service
 USER = "xxx"
@@ -33,7 +40,9 @@ if data['success']:
                 'max_weight': unicode(weight['maxValue'])
             }
 
-    print json.dumps(products)
-
+    json.dump(products, sys.stdout,
+            sort_keys=True, indent=4, ensure_ascii=False)
+    print('')
 else:
-    print 'ERROR: %s' % data['Exception']
+    print('ERROR: %s' % data['Exception'], file=sys.stderr)
+    sys.exit(1)
