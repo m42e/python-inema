@@ -1,24 +1,38 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
+from datetime import datetime, date
 from pytz import timezone
 import hashlib
 import json
 from lxml import etree
 from zeep import Client
 from zeep.wsse.username import UsernameToken
-from pkg_resources import resource_stream
+from pkg_resources import resource_stream, resource_listdir
 import requests, zipfile
 import io
 import logging
 
-__version__ = "0.8"
+__version__ = "0.8.1"
 
 _logger = logging.getLogger(__name__)
 
-products_json = resource_stream(__name__, "data/products.json").read().decode("utf-8")
-marke_products = json.loads(products_json)
+
+# Read the most recent inema/data/products-YYYY-MM-DD.json where YYYY-MM-DD is
+# not more recent than today. Fall back to inema/data/products.json.
+# This allows to ship multiple products.json files for announced future price/product
+# changes.
+def load_products():
+    global marke_products
+    ps = [ e for e in resource_listdir(__name__, 'data')
+            if e.startswith('products-') and e.endswith('.json')
+            and e <= 'products-{}.json'.format(date.today().isoformat()) ]
+    ps.sort()
+    ps.insert(0, 'products.json')
+    products_json = resource_stream(__name__, 'data/' + ps[-1]).read().decode("utf-8")
+    marke_products = json.loads(products_json)
+
+load_products()
 
 formats_json = resource_stream(__name__, "data/formats.json").read().decode("utf-8")
 formats = json.loads(formats_json)

@@ -1,0 +1,572 @@
+{
+    "1": {
+        "cost_price": "0.8",
+        "international": false,
+        "max_weight": "20",
+        "name": "Standardbrief"
+    },
+    "10001": {
+        "cost_price": "1.1",
+        "international": true,
+        "max_weight": "20",
+        "name": "Standardbrief Intern. GK"
+    },
+    "10011": {
+        "cost_price": "1.7",
+        "international": true,
+        "max_weight": "50",
+        "name": "Kompaktbrief Intern. GK"
+    },
+    "1002": {
+        "cost_price": "3",
+        "international": false,
+        "max_weight": "20",
+        "name": "Standardbrief Integral + EINSCHREIBEN EINWURF"
+    },
+    "10051": {
+        "cost_price": "3.7",
+        "international": true,
+        "max_weight": "500",
+        "name": "Großbrief Intern. GK"
+    },
+    "1007": {
+        "cost_price": "3.3",
+        "international": false,
+        "max_weight": "20",
+        "name": "Standardbrief Integral + EINSCHREIBEN"
+    },
+    "10071": {
+        "cost_price": "7",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Maxibrief Intern. bis 1.000g GK"
+    },
+    "1009": {
+        "cost_price": "5.5",
+        "international": false,
+        "max_weight": "20",
+        "name": "Standardbrief Integral + EINSCHREIBEN + EIGENHÄNDIG"
+    },
+    "10091": {
+        "cost_price": "17",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Maxibrief Intern. bis 2.000g GK"
+    },
+    "1012": {
+        "cost_price": "3.15",
+        "international": false,
+        "max_weight": "50",
+        "name": "Kompaktbrief Integral + EINSCHREIBEN EINWURF"
+    },
+    "10162": {
+        "cost_price": "4.14",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Brief Kilotarif international ohne USt + EINSCHREIBEN"
+    },
+    "10166": {
+        "cost_price": "0.64",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Brief Kilotarif international ohne USt."
+    },
+    "1017": {
+        "cost_price": "3.45",
+        "international": false,
+        "max_weight": "50",
+        "name": "Kompaktbrief Integral + EINSCHREIBEN"
+    },
+    "1019": {
+        "cost_price": "5.65",
+        "international": false,
+        "max_weight": "50",
+        "name": "Kompaktbrief Integral + EINSCHREIBEN + EIGENHÄNDIG"
+    },
+    "10201": {
+        "cost_price": "0.95",
+        "international": true,
+        "max_weight": "15",
+        "name": "Postkarte Intern."
+    },
+    "1022": {
+        "cost_price": "3.75",
+        "international": false,
+        "max_weight": "500",
+        "name": "Großbrief Integral + EINSCHREIBEN EINWURF"
+    },
+    "10246": {
+        "cost_price": "3.2",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International XS"
+    },
+    "10247": {
+        "cost_price": "3.7",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International S"
+    },
+    "10248": {
+        "cost_price": "7",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Warenpost International M"
+    },
+    "10249": {
+        "cost_price": "17",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost International L"
+    },
+    "10250": {
+        "cost_price": "5.55",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International XS Tracked"
+    },
+    "10251": {
+        "cost_price": "6.05",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International S Tracked"
+    },
+    "10252": {
+        "cost_price": "9.35",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Warenpost International M Tracked"
+    },
+    "10253": {
+        "cost_price": "19.35",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost International L Tracked"
+    },
+    "10254": {
+        "cost_price": "3.81",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International XS (EU/USt.)"
+    },
+    "10255": {
+        "cost_price": "4.4",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International S (EU/USt.)"
+    },
+    "10256": {
+        "cost_price": "8.33",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Warenpost International M (EU/USt.)"
+    },
+    "10257": {
+        "cost_price": "20.23",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost International L (EU/USt.)"
+    },
+    "10258": {
+        "cost_price": "6.6",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International XS Tracked (EU/USt.)"
+    },
+    "10259": {
+        "cost_price": "7.2",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International S Tracked (EU/USt.)"
+    },
+    "10260": {
+        "cost_price": "11.13",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Warenpost International M Tracked (EU/USt.)"
+    },
+    "10261": {
+        "cost_price": "23.03",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost International L Tracked (EU/USt.)"
+    },
+    "1027": {
+        "cost_price": "4.05",
+        "international": false,
+        "max_weight": "500",
+        "name": "Großbrief Integral + EINSCHREIBEN"
+    },
+    "10270": {
+        "cost_price": "1",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost Int. KT (EU/USt.) für Internetmarke"
+    },
+    "10271": {
+        "cost_price": "3.35",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost Int. KT Tracked (EU/USt.) für Internetmarke"
+    },
+    "10272": {
+        "cost_price": "1",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost Int. KT (Non EU) für Internetmarke"
+    },
+    "10273": {
+        "cost_price": "3.35",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost Int. KT Tracked (Non EU) für Internetmarke"
+    },
+    "10280": {
+        "cost_price": "6.7",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International XS Unterschrift"
+    },
+    "10281": {
+        "cost_price": "7.2",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International S Unterschrift"
+    },
+    "10282": {
+        "cost_price": "10.5",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Warenpost International M Unterschrift"
+    },
+    "10283": {
+        "cost_price": "20.5",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost International L Unterschrift"
+    },
+    "10284": {
+        "cost_price": "7.97",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International XS Unterschrift (EU/USt.)"
+    },
+    "10285": {
+        "cost_price": "8.57",
+        "international": true,
+        "max_weight": "500",
+        "name": "Warenpost International S Unterschrift (EU/USt.)"
+    },
+    "10286": {
+        "cost_price": "12.5",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Warenpost International M Unterschrift (EU/USt.)"
+    },
+    "10287": {
+        "cost_price": "24.4",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost International L Unterschrift (EU/USt.)"
+    },
+    "1029": {
+        "cost_price": "6.25",
+        "international": false,
+        "max_weight": "500",
+        "name": "Großbrief Integral + EINSCHREIBEN + EIGENHÄNDIG"
+    },
+    "10292": {
+        "cost_price": "4.5",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost Int. KT Unterschrift (EU/USt.) für Internetmarke"
+    },
+    "10293": {
+        "cost_price": "4.5",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Warenpost Int. KT Unterschrift (Non EU) für Internetmarke"
+    },
+    "1032": {
+        "cost_price": "4.9",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Maxibrief Integral + EINSCHREIBEN EINWURF"
+    },
+    "1037": {
+        "cost_price": "5.2",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Maxibrief Integral + EINSCHREIBEN"
+    },
+    "1039": {
+        "cost_price": "7.4",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Maxibrief Integral + EINSCHREIBEN + EIGENHÄNDIG"
+    },
+    "1042": {
+        "cost_price": "7.1",
+        "international": false,
+        "max_weight": "2000",
+        "name": "Maxibrief Integral + EINSCHREIBEN EINWURF + Zusatzentgelt MBf"
+    },
+    "1047": {
+        "cost_price": "7.4",
+        "international": false,
+        "max_weight": "2000",
+        "name": "Maxibrief Integral + EINSCHREIBEN + Zusatzentgelt MBf"
+    },
+    "1049": {
+        "cost_price": "9.6",
+        "international": false,
+        "max_weight": "2000",
+        "name": "Maxibrief Integral + EINSCHREIBEN + EIGENHÄNDIG + Zusatzentgelt MBf"
+    },
+    "1052": {
+        "cost_price": "2.8",
+        "international": false,
+        "max_weight": "15",
+        "name": "Postkarte Einschreiben Einwurf"
+    },
+    "1057": {
+        "cost_price": "3.1",
+        "international": false,
+        "max_weight": "15",
+        "name": "Postkarte Einschreiben"
+    },
+    "1059": {
+        "cost_price": "5.3",
+        "international": false,
+        "max_weight": "15",
+        "name": "Postkarte Einsch+Eigh"
+    },
+    "11": {
+        "cost_price": "0.95",
+        "international": false,
+        "max_weight": "50",
+        "name": "Kompaktbrief"
+    },
+    "11006": {
+        "cost_price": "4.6",
+        "international": true,
+        "max_weight": "20",
+        "name": "Standardbrief Intern. GK Integral + EINSCHREIBEN"
+    },
+    "11016": {
+        "cost_price": "5.2",
+        "international": true,
+        "max_weight": "50",
+        "name": "Kompaktbrief Intern. GK Integral + EINSCHREIBEN"
+    },
+    "11056": {
+        "cost_price": "7.2",
+        "international": true,
+        "max_weight": "500",
+        "name": "Großbrief Intern. GK Integral + EINSCHREIBEN"
+    },
+    "11076": {
+        "cost_price": "10.5",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Maxibrief Intern. bis 1.000g GK Integral + EINSCHREIBEN"
+    },
+    "11096": {
+        "cost_price": "20.5",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Maxibrief Intern. bis 2.000g GK Integral + EINSCHREIBEN"
+    },
+    "11202": {
+        "cost_price": "4.45",
+        "international": true,
+        "max_weight": "15",
+        "name": "Postkarte Intern. Einschreiben"
+    },
+    "195": {
+        "cost_price": "1.8",
+        "international": false,
+        "max_weight": "20",
+        "name": "Standardbrief + Prio"
+    },
+    "196": {
+        "cost_price": "1.95",
+        "international": false,
+        "max_weight": "50",
+        "name": "Kompaktbrief + Prio"
+    },
+    "197": {
+        "cost_price": "2.55",
+        "international": false,
+        "max_weight": "500",
+        "name": "Großbrief + Prio"
+    },
+    "198": {
+        "cost_price": "3.7",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Maxibrief + Prio"
+    },
+    "199": {
+        "cost_price": "5.9",
+        "international": false,
+        "max_weight": "2000",
+        "name": "Maxibrief bis 2000 g + Zusatzentgelt MBf + Prio"
+    },
+    "200": {
+        "cost_price": "1.6",
+        "international": false,
+        "max_weight": "15",
+        "name": "Postkarte + Prio"
+    },
+    "21": {
+        "cost_price": "1.55",
+        "international": false,
+        "max_weight": "500",
+        "name": "Großbrief"
+    },
+    "232": {
+        "cost_price": "3.33",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Warenpost individuell"
+    },
+    "233": {
+        "cost_price": "3.33",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Warenpost M"
+    },
+    "234": {
+        "cost_price": "3.09",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Warenpost L"
+    },
+    "235": {
+        "cost_price": "3.33",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Warenpost Blusenlegeformat"
+    },
+    "238": {
+        "cost_price": "3.33",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Warenpost mit Gefahrgut"
+    },
+    "282": {
+        "cost_price": "1.9",
+        "international": false,
+        "max_weight": "500",
+        "name": "Bücher- und Warensendung 500"
+    },
+    "290": {
+        "cost_price": "2.2",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Bücher- und Warensendung 1000"
+    },
+    "30092": {
+        "cost_price": "3.2",
+        "international": true,
+        "max_weight": "500",
+        "name": "Presse Eco 500g"
+    },
+    "30112": {
+        "cost_price": "6",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Presse Eco 1000g"
+    },
+    "30132": {
+        "cost_price": "12",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Presse Eco 2000g"
+    },
+    "30202": {
+        "cost_price": "3.7",
+        "international": true,
+        "max_weight": "500",
+        "name": "Presse Prio 500g"
+    },
+    "30207": {
+        "cost_price": "7.2",
+        "international": true,
+        "max_weight": "500",
+        "name": "Presse Prio 500g + EINSCHREIBEN"
+    },
+    "30222": {
+        "cost_price": "7",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Presse Prio 1000g"
+    },
+    "30227": {
+        "cost_price": "10.5",
+        "international": true,
+        "max_weight": "1000",
+        "name": "Presse Prio 1000g + EINSCHREIBEN"
+    },
+    "30242": {
+        "cost_price": "17",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Presse Prio 2000g"
+    },
+    "30247": {
+        "cost_price": "20.5",
+        "international": true,
+        "max_weight": "2000",
+        "name": "Presse Prio 2000g + EINSCHREIBEN"
+    },
+    "31": {
+        "cost_price": "2.7",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Maxibrief"
+    },
+    "401": {
+        "cost_price": "0.89",
+        "international": false,
+        "max_weight": "50",
+        "name": "Streifbandzeitung bis 50 g"
+    },
+    "402": {
+        "cost_price": "1.19",
+        "international": false,
+        "max_weight": "100",
+        "name": "Streifbandzeitung bis 100 g"
+    },
+    "403": {
+        "cost_price": "1.37",
+        "international": false,
+        "max_weight": "250",
+        "name": "Streifbandzeitung bis 250 g"
+    },
+    "404": {
+        "cost_price": "1.67",
+        "international": false,
+        "max_weight": "500",
+        "name": "Streifbandzeitung bis 500 g"
+    },
+    "405": {
+        "cost_price": "2.5",
+        "international": false,
+        "max_weight": "1000",
+        "name": "Streifbandzeitung bis 1000 g"
+    },
+    "41": {
+        "cost_price": "4.9",
+        "international": false,
+        "max_weight": "2000",
+        "name": "Maxibrief bis 2000 g + Zusatzentgelt MBf"
+    },
+    "51": {
+        "cost_price": "0.6",
+        "international": false,
+        "max_weight": "15",
+        "name": "Postkarte"
+    }
+}
