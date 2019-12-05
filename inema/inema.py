@@ -14,7 +14,7 @@ import requests, zipfile
 import io
 import logging
 
-__version__ = pkg_resources.require(__name__)[0].version
+__version__ = pkg_resources.get_distribution(__package__).version
 
 _logger = logging.getLogger(__name__)
 
