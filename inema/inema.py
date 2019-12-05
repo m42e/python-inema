@@ -9,11 +9,12 @@ from lxml import etree
 from zeep import Client
 from zeep.wsse.username import UsernameToken
 from pkg_resources import resource_stream, resource_listdir
+import pkg_resources
 import requests, zipfile
 import io
 import logging
 
-__version__ = "0.8.1"
+__version__ = pkg_resources.require(__name__)[0].version
 
 _logger = logging.getLogger(__name__)
 
