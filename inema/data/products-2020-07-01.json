@@ -144,49 +144,49 @@
         "name": "Warenpost International L Tracked"
     },
     "10254": {
-        "cost_price": "3.81",
+        "cost_price": "3.71",
         "international": true,
         "max_weight": "500",
         "name": "Warenpost International XS (EU/USt.)"
     },
     "10255": {
-        "cost_price": "4.4",
+        "cost_price": "4.29",
         "international": true,
         "max_weight": "500",
         "name": "Warenpost International S (EU/USt.)"
     },
     "10256": {
-        "cost_price": "8.33",
+        "cost_price": "8.12",
         "international": true,
         "max_weight": "1000",
         "name": "Warenpost International M (EU/USt.)"
     },
     "10257": {
-        "cost_price": "20.23",
+        "cost_price": "19.72",
         "international": true,
         "max_weight": "2000",
         "name": "Warenpost International L (EU/USt.)"
     },
     "10258": {
-        "cost_price": "6.6",
+        "cost_price": "6.44",
         "international": true,
         "max_weight": "500",
         "name": "Warenpost International XS Tracked (EU/USt.)"
     },
     "10259": {
-        "cost_price": "7.2",
+        "cost_price": "7.02",
         "international": true,
         "max_weight": "500",
         "name": "Warenpost International S Tracked (EU/USt.)"
     },
     "10260": {
-        "cost_price": "11.13",
+        "cost_price": "10.85",
         "international": true,
         "max_weight": "1000",
         "name": "Warenpost International M Tracked (EU/USt.)"
     },
     "10261": {
-        "cost_price": "23.03",
+        "cost_price": "22.45",
         "international": true,
         "max_weight": "2000",
         "name": "Warenpost International L Tracked (EU/USt.)"
@@ -246,25 +246,25 @@
         "name": "Warenpost International L Unterschrift"
     },
     "10284": {
-        "cost_price": "7.97",
+        "cost_price": "7.77",
         "international": true,
         "max_weight": "500",
         "name": "Warenpost International XS Unterschrift (EU/USt.)"
     },
     "10285": {
-        "cost_price": "8.57",
+        "cost_price": "8.35",
         "international": true,
         "max_weight": "500",
         "name": "Warenpost International S Unterschrift (EU/USt.)"
     },
     "10286": {
-        "cost_price": "12.5",
+        "cost_price": "12.18",
         "international": true,
         "max_weight": "1000",
         "name": "Warenpost International M Unterschrift (EU/USt.)"
     },
     "10287": {
-        "cost_price": "24.4",
+        "cost_price": "23.78",
         "international": true,
         "max_weight": "2000",
         "name": "Warenpost International L Unterschrift (EU/USt.)"
@@ -426,31 +426,31 @@
         "name": "Großbrief"
     },
     "232": {
-        "cost_price": "3.33",
+        "cost_price": "3.25",
         "international": false,
         "max_weight": "1000",
         "name": "Warenpost individuell"
     },
     "233": {
-        "cost_price": "3.33",
+        "cost_price": "3.25",
         "international": false,
         "max_weight": "1000",
         "name": "Warenpost M"
     },
     "234": {
-        "cost_price": "3.09",
+        "cost_price": "3.02",
         "international": false,
         "max_weight": "1000",
         "name": "Warenpost L"
     },
     "235": {
-        "cost_price": "3.33",
+        "cost_price": "3.25",
         "international": false,
         "max_weight": "1000",
         "name": "Warenpost Blusenlegeformat"
     },
     "238": {
-        "cost_price": "3.33",
+        "cost_price": "3.25",
         "international": false,
         "max_weight": "1000",
         "name": "Warenpost mit Gefahrgut"
@@ -528,31 +528,31 @@
         "name": "Maxibrief"
     },
     "401": {
-        "cost_price": "0.89",
+        "cost_price": "0.87",
         "international": false,
         "max_weight": "50",
         "name": "Streifbandzeitung bis 50 g"
     },
     "402": {
-        "cost_price": "1.19",
+        "cost_price": "1.16",
         "international": false,
         "max_weight": "100",
         "name": "Streifbandzeitung bis 100 g"
     },
     "403": {
-        "cost_price": "1.37",
+        "cost_price": "1.33",
         "international": false,
         "max_weight": "250",
         "name": "Streifbandzeitung bis 250 g"
     },
     "404": {
-        "cost_price": "1.67",
+        "cost_price": "1.62",
         "international": false,
         "max_weight": "500",
         "name": "Streifbandzeitung bis 500 g"
     },
     "405": {
-        "cost_price": "2.5",
+        "cost_price": "2.44",
         "international": false,
         "max_weight": "1000",
         "name": "Streifbandzeitung bis 1000 g"
