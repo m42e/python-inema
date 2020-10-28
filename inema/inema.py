@@ -1,71 +1,99 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-from datetime import datetime
+from datetime import datetime, date
 from pytz import timezone
 import hashlib
 import json
 from lxml import etree
 from zeep import Client
-from pkg_resources import resource_stream, Requirement
+from zeep.wsse.username import UsernameToken
+from pkg_resources import resource_stream, resource_listdir
+import pkg_resources
 import requests, zipfile
 import io
 import logging
 
-__version__ = "0.62"
+__version__ = pkg_resources.get_distribution(__package__).version
 
 _logger = logging.getLogger(__name__)
 
-products_json = resource_stream(__name__, "data/products.json").read().decode()
-marke_products = json.loads(products_json)
 
-formats_json = resource_stream(__name__, "data/formats.json").read().decode()
+# Read the most recent inema/data/products-YYYY-MM-DD.json where YYYY-MM-DD is
+# not more recent than today. Fall back to inema/data/products.json.
+# This allows to ship multiple products.json files for announced future price/product
+# changes.
+def load_products():
+    global marke_products
+    ps = [ e for e in resource_listdir(__name__, 'data')
+            if e.startswith('products-') and e.endswith('.json')
+            and e <= 'products-{}.json'.format(date.today().isoformat()) ]
+    ps.sort()
+    ps.insert(0, 'products.json')
+    products_json = resource_stream(__name__, 'data/' + ps[-1]).read().decode("utf-8")
+    marke_products = json.loads(products_json)
+
+load_products()
+
+formats_json = resource_stream(__name__, "data/formats.json").read().decode("utf-8")
 formats = json.loads(formats_json)
 
-def get_product_price_by_id(ext_prod_id):
-    price_float_str = marke_products[str(ext_prod_id)]['cost_price']
-    return int(round(float(price_float_str) * 100))
+class ProductInformation(object):
+    wsdl_url = 'https://prodws.deutschepost.de:8443/ProdWSProvider_1_1/prodws?wsdl'
 
-# generate a 1C4A SOAP header
-def gen_1c4a_hdr(partner_id, key_phase, key):
-    # Compute 1C4A request hash accordig to Section 4 of service description
-    def compute_1c4a_hash(partner_id, req_ts, key_phase, key):
-        # trim leading and trailing spaces of each argument
-        partner_id = partner_id.strip()
-        req_ts = req_ts.strip()
-        key_phase = key_phase.strip()
-        key = key.strip()
-        # concatenate with "::" separator
-        inp = "%s::%s::%s::%s" % (partner_id, req_ts, key_phase, key)
-        # compute MD5 hash as 32 hex nibbles
-        md5_hex = hashlib.md5(inp.encode('utf8')).hexdigest()
-        # return the first 8 characters
-        return md5_hex[:8]
+    def __init__(self, username, password, mandantid):
+        self.client = Client(self.wsdl_url, wsse=UsernameToken(username, password))
+        self.username = username
+        self.password = password
+        self.mandantid = mandantid
 
-    def gen_timestamp():
-        de_zone = timezone("Europe/Berlin")
-        de_time = datetime.now(de_zone)
-        return de_time.strftime("%d%m%Y-%H%M%S")
+    def getProductList(self):
+        s = self.client.service
+        r = s.getProductList(mandantID=self.mandantid, dedicatedProducts=True, responseMode=0)
+        _logger.info("getProductList result: %s", r)
 
-
-    nsmap={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/',
-           'v3':'http://oneclickforpartner.dpag.de'}
-    r = etree.Element("{http://schemas.xmlsoap.org/soap/envelope/}Header", nsmap = nsmap)
-    headers = []
-
-    def add_header(name, text):
-        elem = etree.SubElement(r, "{{{}}}{}".format(nsmap['v3'],name))
-        elem.text = text
-        headers.append(elem)
-
-    timestamp = gen_timestamp()
-    add_header('PARTNER_ID', partner_id)
-    add_header('REQUEST_TIMESTAMP', timestamp)
-    add_header('KEY_PHASE', key_phase)
-    add_header('PARTNER_SIGNATURE', compute_1c4a_hash(partner_id, timestamp, key_phase, key))
-    return headers
+        return r
 
 class Internetmarke(object):
     wsdl_url = 'https://internetmarke.deutschepost.de/OneClickForAppV3/OneClickForAppServiceV3?wsdl'
+
+    # generate a 1C4A SOAP header
+    def gen_1c4a_hdr(self, partner_id, key_phase, key):
+        # Compute 1C4A request hash accordig to Section 4 of service description
+        def compute_1c4a_hash(partner_id, req_ts, key_phase, key):
+            # trim leading and trailing spaces of each argument
+            partner_id = partner_id.strip()
+            req_ts = req_ts.strip()
+            key_phase = key_phase.strip()
+            key = key.strip()
+            # concatenate with "::" separator
+            inp = "%s::%s::%s::%s" % (partner_id, req_ts, key_phase, key)
+            # compute MD5 hash as 32 hex nibbles
+            md5_hex = hashlib.md5(inp.encode('utf8')).hexdigest()
+            # return the first 8 characters
+            return md5_hex[:8]
+
+        def gen_timestamp():
+            de_zone = timezone("Europe/Berlin")
+            de_time = datetime.now(de_zone)
+            return de_time.strftime("%d%m%Y-%H%M%S")
+
+        nsmap={'soapenv': 'http://schemas.xmlsoap.org/soap/envelope/',
+               'v3':'http://oneclickforpartner.dpag.de'}
+        r = etree.Element("{http://schemas.xmlsoap.org/soap/envelope/}Header", nsmap = nsmap)
+        p = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_ID")
+        p.text = partner_id
+        t = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}REQUEST_TIMESTAMP")
+        t.text = gen_timestamp()
+        k = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}KEY_PHASE")
+        k.text = key_phase
+        s = etree.SubElement(r, "{http://oneclickforpartner.dpag.de}PARTNER_SIGNATURE")
+        s.text = compute_1c4a_hash(partner_id, t.text, key_phase, key)
+        return [p, t, k, s]
+
+    def get_product_price_by_id(self, ext_prod_id):
+        price_float_str = marke_products[str(ext_prod_id)]['cost_price']
+        return int(round(float(price_float_str) * 100))
 
     def __init__(self, partner_id, key, key_phase="1"):
         self.client = Client(self.wsdl_url)
@@ -131,7 +159,7 @@ class Internetmarke(object):
     def compute_total(self):
         total = 0
         for p in self.positions:
-            total += get_product_price_by_id(p.productCode)
+            total += self.get_product_price_by_id(p.productCode)
         return total
 
     def checkoutPDF(self, page_format):
